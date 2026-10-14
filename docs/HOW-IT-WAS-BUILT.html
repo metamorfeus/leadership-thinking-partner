@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner — How It Was Built</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong)}
+h3{font-size:1.02rem;margin:1.6em 0 .3em}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.bottomline{background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em}
+.bottomline p{margin:.4em 0}
+.toc{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.9rem;background:var(--code);border-radius:4px;padding:12px 18px;margin:1.4em 0}
+.toc ol{margin:.3em 0;padding-left:1.3em}
+.toc a{text-decoration:none}
+.step{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:14px 18px;margin:1.2em 0}
+.step h3{margin-top:0}
+.callout{background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;padding:12px 16px;margin:1.2em 0;font-size:.95rem}
+.callout b{color:var(--warn)}
+.tip{background:var(--new-soft);border:1px solid var(--new);border-radius:4px;padding:12px 16px;margin:1.2em 0;font-size:.95rem}
+.tip b{color:var(--new)}
+.scroll{overflow-x:auto;margin:1em 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);border-bottom:2px solid var(--rule-strong)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+pre{background:var(--code);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;font:.8rem/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+ul,ol{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.small{font-size:.9rem;color:var(--ink-soft)}
+.check li{list-style:none;position:relative;padding-left:1.4em}
+.check li::before{content:"☐";position:absolute;left:0;color:var(--accent)}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10pt}
+  .wrap{max-width:none;padding:0}
+  .toc{display:none}
+  table{min-width:0}
+  .step,.callout,.tip,pre,tr{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Leadership Thinking Partner — how it was built</h1>
+<p class="sub">Rebuild guide · covers v1.0 → v1.6, the first build of 2026-10-05, made with Claude Code · later testing is described in the update below · for anyone who wants to rebuild it, or build something similar from another open-source method library</p>
+
+<div class="bottomline">
+<p><b>The method in one line.</b> Lift the <i>thinking methods</i> out of an engineering toolkit, rewrite them as plain-language Project instructions, then test every mode in simulated conversations with independent AI role-players and an AI judge. Fix what fails and re-test until each mode passes.</p>
+<p><b>What it took.</b> One long Claude Code session. 25 judged test conversations and 23 conversations cut off by usage limits. Six versions of the instructions. Each test took 10–17 minutes. Writing the product took a small part of the effort, and testing took most of it.</p>
+<p><b>Update, 14 October 2026.</b> After v1.6 the testing method changed. Each round used separate sessions for the assistant, the simulated executive, the answer key and two blind readers, with the rule written and pushed before the run, and led to versions 1.7 to 2.0. The steps below describe the first build and are kept as they were. For the current method and what it showed, read <a href="WHAT-WAS-TESTED.html">WHAT-WAS-TESTED.html</a>.</p>
+<p><b>Who this guide is for.</b> Someone comfortable with Claude Code and a terminal. The <i>result</i> needs no technical skill, but rebuilding it and testing it does.</p>
+</div>
+
+<nav class="toc"><b>Steps</b>
+<ol>
+<li><a href="#s0">Before you start</a></li>
+<li><a href="#s1">Get the source material, read-only</a></li>
+<li><a href="#s2">Write a value review first</a></li>
+<li><a href="#s3">Read the methods, and delegate the big files</a></li>
+<li><a href="#s4">Make the five decisions, with checked facts</a></li>
+<li><a href="#s5">Write the Project instructions</a></li>
+<li><a href="#s6">Build the test harness</a></li>
+<li><a href="#s7">Pilot one test, then run in batches</a></li>
+<li><a href="#s8">Read failures as patterns and fix the instructions</a></li>
+<li><a href="#s9">Write the user documents</a></li>
+<li><a href="#s10">Lessons that will save you time</a></li>
+<li><a href="#s11">Rebuild checklist</a></li>
+</ol></nav>
+
+<h2 id="s0">0. Before you start</h2>
+<ul>
+<li><b>Claude Code</b>, with a plan that has enough usage for many subagents. The tests are the expensive part. One test conversation used roughly 90,000–130,000 subagent tokens for its runner alone, plus the role-players and the judge.</li>
+<li><b>Git</b>, to clone the source library.</li>
+<li><b>A Claude account</b> for the final live check in the Claude app. Anthropic's help pages disagree on whether Free accounts can set project instructions, so a paid plan may be needed.</li>
+<li>A folder for the new product, <b>separate from the source library</b>. It will become its own repository.</li>
+</ul>
+
+<h2 id="s1">1. Get the source material, read-only</h2>
+<div class="step">
+<h3>Clone gstack into a scratch area you will never commit</h3>
+<pre>git clone --depth 1 https://github.com/garrytan/gstack EXTERNAL-REPOS/gstack</pre>
+<p>Our build used version 1.91.27.0 (commit <code>10315cf</code>, cloned 2026-10-05). gstack changes about 1.4 times a day, so record the version you used. Its licence is MIT (© Garry Tan). You may adapt it freely, but keep the MIT notice if you copy any text word for word.</p>
+<p><b>Rules:</b> never modify the clone, never commit it, and never install it. Executives will never touch it.</p>
+</div>
+
+<h2 id="s2">2. Write a value review first</h2>
+<div class="step">
+<p>Before building anything, we wrote an HTML review of gstack <i>for a non-technical executive</i>. It rated every part of the repository, picked the ten methods worth taking, listed what to keep away from (stealth browsing, shared logged-in browsers, scraping personal data, per-person activity metrics), and included a first draft of the Project instructions.</p>
+<p>That review then served as <b>the contract for the build</b>. It fixed the scope, the exclusions and the adaptations up front, so the build session never had to re-argue them.</p>
+<p class="small">Agreed adaptations: remove the Y Combinator pitch; replace "would pay real money" with budget, adoption and sponsor sign-off; always use the intrapreneur versions of question 4 ("smallest demo that gets your sponsor to greenlight") and question 6 ("does this survive a reorg?"); strip every code, git, test and file step; keep the anti-flattery and one-question rules; keep "AI recommends, the user decides".</p>
+</div>
+
+<h2 id="s3">3. Read the methods, and delegate the big files</h2>
+<div class="step">
+<p>Read the short, chat-only versions yourself. Skip the bash and telemetry preamble at the top of each skill file.</p>
+<div class="scroll"><table>
+<thead><tr><th>File (inside gstack)</th><th>Size</th><th>What to take</th></tr></thead>
+<tbody>
+<tr><td><code>openclaw/skills/gstack-openclaw-office-hours/SKILL.md</code></td><td>17k chars</td><td>Six forcing questions, pushback patterns, anti-flattery list, premises, options, the assignment</td></tr>
+<tr><td><code>office-hours/sections/phase-2a-startup-diagnostic.md</code></td><td>14k</td><td>Intrapreneur versions of Q4 and Q6, the escape hatch for impatient users</td></tr>
+<tr><td><code>openclaw/skills/gstack-openclaw-ceo-review/SKILL.md</code></td><td>11k</td><td>Premise challenge, current → plan → 12-month ideal, the four scope modes. Skip the 11 engineering sections.</td></tr>
+<tr><td><code>openclaw/skills/gstack-openclaw-investigate/SKILL.md</code></td><td>5k</td><td>"No fixes without root cause", what changed, the three-strike rule, red flags, the report</td></tr>
+<tr><td><code>openclaw/skills/gstack-openclaw-retro/SKILL.md</code>, <code>retro/sections/report-format.md</code></td><td>10k + 6k</td><td>Wins, improvements, habits and tone rules only. <b>Drop all per-person metrics.</b></td></tr>
+<tr><td><code>ETHOS.md</code></td><td>8k</td><td>"AI models recommend. Users decide."</td></tr>
+<tr><td><code>docs/explanation-diataxis-in-gstack.md</code></td><td>8k</td><td>The four reader needs (Diataxis)</td></tr>
+</tbody></table></div>
+<p>Five files are very large (40–96k characters each). Give them to a <b>background subagent</b> with a precise extraction brief, so your own context stays clean. The prompt we used, shortened:</p>
+<pre>Read-only task. Root: EXTERNAL-REPOS/gstack. I am adapting gstack's THINKING METHODS
+(not its tooling) into a Claude Project for non-technical executives. Skip every
+bash/telemetry/git/test step. Extract only methodology that transfers to business decisions:
+1. spec/SKILL.md - the five "why" questions, scope lock, quality standards, output structure
+2. spec/sections/gate-and-file.md - the privacy/sensitivity check before sharing
+3. autoplan/SKILL.md - Mechanical / Taste / User-Challenge classification, audit table
+4. review/checklist.md - auto-fix vs ASK, translated to business equivalents
+5. plan-eng-review (+ sections/review-sections.md) - assumption-forcing questions,
+   confidence calibration (cap without quoted evidence)
+6. context-save + context-restore - checkpoint sections, provenance tags, "verify first"
+7. plan-ceo-review/SKILL.md - Step 0, scope modes, reversibility scale, ADD/DEFER/SKIP
+Output a structured digest in YOUR OWN paraphrase (licence), short key quotes only where
+wording matters, with file + approximate line. Flag anything you were unsure of. Max ~2,500 words.</pre>
+<p class="small">The digest found one thing that changed the design. gstack's Spec skill asks 3–5 questions per round, while its review skills ask one at a time. We applied one at a time everywhere.</p>
+</div>
+
+<h2 id="s4">4. Make the five decisions, with checked facts</h2>
+<div class="step">
+<p>Present each decision with a recommendation and <b>wait for the owner's answer</b> before writing the product. For packaging, check the platform limits in the official docs, not from memory. A <code>claude-code-guide</code> subagent did this against Anthropic's help centre.</p>
+<div class="scroll"><table>
+<thead><tr><th>Fact checked (2026-10-05)</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Project instructions have no hard character limit. They count against the 200K-token context.</td><td>support.claude.com/en/articles/11647753</td></tr>
+<tr><td>Projects exist on every plan. Free allows 5. Paid plans add retrieval for large projects.</td><td>support.claude.com/en/articles/9517075</td></tr>
+<tr><td>Skills need "Code execution and file creation" switched on, and are per account or organisation, not per Project.</td><td>support.claude.com/en/articles/12512176 and /12512180</td></tr>
+</tbody></table></div>
+<p>The decisions: <b>D1</b> one instructions file holding all modes, <b>D2</b> clients and course buyers plus book readers, <b>D3</b> six modes, <b>D4</b> English first, <b>D5</b> a standalone repository. The reasons are in <code>WHAT-WAS-BUILT.html</code>, section 5.</p>
+</div>
+
+<h2 id="s5">5. Write the Project instructions</h2>
+<div class="step">
+<p>Structure that worked:</p>
+<ol>
+<li>A two-sentence role and the user's sovereignty ("You recommend. I decide.") plus the attribution line.</li>
+<li><b>Standing rules</b> that apply in every mode, numbered so the tests and fixes can point at them.</li>
+<li>A <b>mode chooser</b> table: mode, when to use it, what it ends with.</li>
+<li><b>One section per mode</b>, each with numbered steps and an exact list of output headings.</li>
+</ol>
+<p>Write it in plain, second-person language ("Ask me…", "My words go in as I said them"), as if the executive were writing it. Avoid engineering words even in the instructions, because the model copies the register it is given.</p>
+<div class="callout"><b>The biggest single lesson.</b> The model copies the <i>shape</i> of your example questions. Our first versions contained prompts like "What is the business outcome, and is this plan the most direct way to get it?" and "What do people do today? What does that cost?". The assistant kept asking compound questions until those prompts were rewritten as one question each, with the second part marked "Follow-up in your next message". Check every question in your instructions for "and", "or" and a second question mark.</div>
+<p><b>Licence handling:</b> rewrite every method in your own words. Add a <code>NOTICE.md</code> with a mode-to-source table and the full gstack MIT notice. Put one attribution line in the instructions themselves.</p>
+</div>
+
+<h2 id="s6">6. Build the test harness</h2>
+<div class="step">
+<h3>6a. Scenarios: two per mode, each with a trap</h3>
+<p>Each scenario in <code>tests/scenarios.md</code> has a persona, an opening line, <b>hidden facts revealed only when the assistant pushes</b>, and a deliberate trap. One rule applies to every executive: start vague, with categories and feelings, and reveal facts only under pushback. Example traps: "skip the questions" said twice; "track who uses it most so we can see who's ambitious"; "just mark everything as done"; pushing a fix (cut prices) before the cause is known; naming a team leader as "a disaster" in a brief going to an outside consultancy.</p>
+
+<h3>6b. Three independent agents, one fresh agent per turn</h3>
+<p>A <b>runner</b> subagent runs one conversation. For every turn it starts a <b>fresh, foreground</b> subagent that reads the files it needs from disk and returns only its next message:</p>
+<ul>
+<li><b>EXECUTIVE</b> (Sonnet). It reads only the common rule and its own scenario, plus the transcript so far.</li>
+<li><b>ASSISTANT</b> (Sonnet). It reads only the Project instructions and the transcript. It stands in for Claude inside a Project, and each reply is generated from the instructions plus history, as in the app.</li>
+<li><b>JUDGE</b> (a stronger model). It reads the instructions and the finished transcript, scores six checks, and quotes the evidence for every failure.</li>
+</ul>
+<p>The runner appends each reply to a Markdown transcript, stops when the executive replies <code>[END]</code> or at an 18-turn cap, and returns a fixed result block. First check that a subagent may spawn subagents. Ours could.</p>
+
+<h3>6c. The six checks</h3>
+<div class="scroll"><table>
+<thead><tr><th>Check</th><th>FAIL when</th></tr></thead>
+<tbody>
+<tr><td>C1 One question at a time</td><td>Any message asks for two facts or decisions</td></tr>
+<tr><td>C2 Pushes back on vague answers</td><td>A vague answer is accepted without one challenge</td></tr>
+<tr><td>C3 No flattery</td><td>A banned phrase or any hollow praise</td></tr>
+<tr><td>C4 Never changes direction without asking</td><td>Something the user stated is added to, removed, replaced or moved without agreement</td></tr>
+<tr><td>C5 No engineering language</td><td>Code or software terms the user didn't use first</td></tr>
+<tr><td>C6 Ends with the required output</td><td>The mode's document, with its headings, is missing</td></tr>
+</tbody></table></div>
+
+<h3>6d. How a test is launched</h3>
+<pre>Agent(subagent_type="general-purpose", model="sonnet", run_in_background=true, prompt=
+"You are a test runner. Read and follow exactly the protocol in
+ &lt;repo&gt;/tests/RUNNER-PROTOCOL.md (including its Housekeeping section). Run every step strictly
+ in sequence: append a turn to the transcript before you spawn the next role-player.
+ TEST-ID: M2-A   RUN-LABEL: R7   MODE: Mode 2 - Plan Review
+ INSTRUCTIONS path: &lt;repo&gt;/PROJECT-INSTRUCTIONS.md (version 1.6)
+ Do not modify PROJECT-INSTRUCTIONS.md, scenarios.md or any other test's transcript.
+ Write the judge's full output into the transcript. Return only the result block.")</pre>
+<p class="small">The full role prompts for the executive, assistant and judge are in <code>tests/RUNNER-PROTOCOL.md</code>. Copy them as they are.</p>
+</div>
+
+<h2 id="s7">7. Pilot one test, then run in batches</h2>
+<div class="step">
+<ol>
+<li><b>Pilot one scenario first.</b> Ours exposed protocol problems (shell quoting, shared scratch files) and the main product failures, so we learned a lot from one run.</li>
+<li><b>Fix the cross-cutting failures before running the rest.</b> If the pilot shows a pattern that will clearly repeat, fix it first. Running all twelve against a version you already know is broken wastes budget.</li>
+<li><b>Run at most four tests at once.</b> There is a hard cap of 20 concurrent subagents, and each runner has a child running. Eleven at once hit the cap, and account usage limits also cut runs off.</li>
+<li><b>Label runs by version</b> (R1 = v1.0, R2 = v1.1 …), keep every judged transcript, and move cut-off runs to <code>aborted-R&lt;n&gt;/</code> so they are never mistaken for results.</li>
+<li><b>Keep a continuation prompt up to date</b> after every batch, so a session cut off by a usage limit can be resumed exactly where it stopped.</li>
+</ol>
+</div>
+
+<h2 id="s8">8. Read failures as patterns and fix the instructions</h2>
+<div class="step">
+<p>After each batch, put the failures in a table: the pattern, which tests showed it, and the root cause <i>in the instructions</i>. Fix the cause, not the instance. When patching rules stopped working, rewriting them did. What changed across versions:</p>
+<div class="scroll"><table>
+<thead><tr><th>Version</th><th>Main change</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>v1.1</td><td>Defined "one question", extended the banned phrases, "do exactly what I say on edits", a stronger sharing check</td><td>Pilot: compound questions, "This could work", a reversed edit, a skipped question</td></tr>
+<tr><td>v1.2</td><td><b>Rewrote</b> the core rules: a one-question-mark test, "judge, never compliment" (praise allowance removed), "my words go in as I said them", a pacing rule</td><td>All four v1.1 tests failed on the same patterns. Adding bans had stopped working.</td></tr>
+<tr><td>v1.3</td><td>Two data requests count as two questions, clean shareable documents with separate notes, declined requests stay visible, exact quotes</td><td>The one-question-mark test was being gamed ("X along with Y")</td></tr>
+<tr><td>v1.4</td><td>Separated "wrap up" from "skip the questions", a general rule for forbidden requests, Handoff Note pushback and tags</td><td>The instructions contradicted themselves</td></tr>
+<tr><td>v1.5</td><td>No ranking of any answer, pacing may never drop a required step, "Recommended:" labels everywhere</td><td>The question limit was used as an excuse to skip steps</td></tr>
+<tr><td>v1.6</td><td>Removed compound questions <i>from the instructions themselves</i>, added rule 13 (a pre-send checklist), shortened Plan Review</td><td>Root cause of the stubborn compound questions. Rules were followed in conversation but forgotten in final documents.</td></tr>
+</tbody></table></div>
+<div class="tip"><b>Watch for fixes that cause new failures.</b> "Never skip a step" (v1.5) made Plan Review so long that it ran out of turns before the summary. Every tightening needs a pacing counterweight.</div>
+</div>
+
+<h2 id="s9">9. Write the user documents</h2>
+<div class="step">
+<ul>
+<li><b>README.md:</b> what it is, why use it, the modes table with example opening lines, five-step set-up, how it was tested, privacy, credits. Verify every claim about the Claude app. We softened two that could not be checked (the exact label of the instructions field and a session length).</li>
+<li><b>docs/QUICK-START.html:</b> one printable page for executives. Self-contained, light and dark, no external assets.</li>
+<li><b>CHANGELOG.md:</b> one entry per version, each change tied to the test finding that caused it.</li>
+<li><b>tests/TEST-REPORT.html:</b> every judged run with the six checks, the latest status per scenario, what changed, runs that did not count, what is still open, and the method's limits. Report failures plainly.</li>
+</ul>
+</div>
+
+<h2 id="s10">10. Lessons that will save you time</h2>
+<div class="scroll"><table>
+<thead><tr><th>Lesson</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>The model copies the shape of your example questions</td><td>Every question in the instructions is a single question</td></tr>
+<tr><td>Bans multiply, then stop working</td><td>After two rounds of patching, rewrite the rule around the principle, and add a mechanical test or a pre-send checklist</td></tr>
+<tr><td>An allowance invites abuse ("you may praise once")</td><td>Remove allowances that sit next to a ban</td></tr>
+<tr><td>Rules followed in conversation get forgotten in the final document</td><td>Add an explicit check before sending the final output</td></tr>
+<tr><td>Usage limits cut off long test batches</td><td>At most four runners at once, a continuation prompt kept current, and cut-off runs moved aside and re-run</td></tr>
+<tr><td>Parallel runners collide on shared scratch files</td><td>Unique names per test (<code>&lt;TEST&gt;_&lt;RUN&gt;_purpose.md</code>), and file edits instead of shell heredocs</td></tr>
+<tr><td>Role-players leak stage directions ("Vague on numbers:")</td><td>Tell the executive its reply is pasted into the chat as is. Keep leaks verbatim and note them.</td></tr>
+<tr><td>The AI judge is strict on borderline wording</td><td>Read the evidence quote before acting on a FAIL. Fix behaviour an executive would notice first.</td></tr>
+<tr><td>Simulation is not the app</td><td>Finish with a live check in a real Claude Project</td></tr>
+</tbody></table></div>
+
+<h2 id="s11">11. Rebuild checklist</h2>
+<ul class="check">
+<li>Clone the source read-only, and record the version and licence</li>
+<li>Write the value review and agree the scope, exclusions and adaptations</li>
+<li>Read the small method files and delegate the large ones to a digest subagent</li>
+<li>Check the platform limits in the official docs, then present D1–D5 and wait for answers</li>
+<li>Write the instructions: standing rules, mode chooser, one section per mode with output headings</li>
+<li>Check that every question in the instructions is a single question</li>
+<li>Write NOTICE.md (source map and MIT notice), LICENSE and the attribution line</li>
+<li>Write the scenarios (two per mode, hidden facts and a trap each) and the runner protocol</li>
+<li>Pilot one test, fix the protocol and any cross-cutting failures</li>
+<li>Run the remaining tests four at a time, labelled by version</li>
+<li>Tabulate failure patterns, fix root causes, bump the version, add a changelog entry, re-test the failures</li>
+<li>Write the README, quick-start and test report, reporting failures plainly</li>
+<li>Live check in a real Claude Project before publishing</li>
+</ul>
+
+<div class="foot">Leadership Thinking Partner · how it was built · 2026-10-05 · MIT licence · © 2026 Peter Velinov / Metamorfeus · Methods adapted from gstack by Garry Tan (MIT licence). Independent; not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.</div>
+</div>
+</body>
+</html>

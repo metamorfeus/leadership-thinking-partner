@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner — Quick Start</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3,h4{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em;font-weight:700}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong);font-weight:700}
+h3{font-size:1.02rem;margin:0 0 .3em;font-weight:650}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.lede{font-size:1.06rem;color:var(--ink-soft)}
+.bottomline{
+  background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);
+  border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em;
+}
+.bottomline p{margin:.35em 0}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:.8em 0}
+ol.steps li{counter-increment:s;position:relative;padding:.1em 0 .1em 2.3em;margin:.55em 0}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05em;width:1.6em;height:1.6em;border-radius:50%;
+  background:var(--accent);color:var(--bg);font:700 .82rem/1.6em "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;
+}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1em 0}
+@media (max-width:680px){.modes{grid-template-columns:1fr}}
+.card{
+  background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--new);
+  border-radius:4px;padding:14px 16px;
+}
+.card .when{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.8rem;color:var(--ink-faint);margin:.1em 0 .6em}
+.say{
+  background:var(--code);border-radius:3px;padding:.5em .75em;margin:.5em 0;
+  font-size:.92rem;font-style:italic;color:var(--ink);
+}
+.say::before{content:"You type: ";font-style:normal;font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
+.gets{font-size:.9rem;color:var(--ink-soft);margin:.5em 0 0}
+.gets b{color:var(--ink)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;padding:0;list-style:none;margin:.8em 0}
+@media (max-width:680px){.rules{grid-template-columns:1fr}}
+.rules li{padding:.3em 0 .3em 1.4em;position:relative;font-size:.95rem}
+.rules li::before{content:"✓";position:absolute;left:0;color:var(--new);font-weight:700}
+.callout{
+  background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;
+  padding:12px 16px;margin:1.4em 0;font-size:.94rem;
+}
+.callout b{color:var(--warn)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+ul{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);
+  font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  h2{margin-top:1.4em}
+  .card,.callout,.bottomline{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .say{background:#f2f2f2}
+  a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Leadership Thinking Partner</h1>
+<p class="sub">Quick start for executives · version 2.1 · by Metamorfeus · adapted from methods in gstack by Garry Tan (MIT licence)</p>
+
+<div class="bottomline">
+<p class="lede"><b>What it is.</b> A set of instructions you paste once into a Claude Project. After that, Claude works with you like a demanding, honest advisor. It asks one question at a time, pushes back when an answer is vague, does not flatter you, and is built not to change your plan without asking. Every session ends with a document you can use.</p>
+<p><b>What you need.</b> A Claude account and five minutes. Anthropic's help pages disagree on whether Free accounts can set project instructions, so check that the button appears. Nothing to install, no technical skills.</p>
+</div>
+
+<h2>Set it up once</h2>
+<ol class="steps">
+<li>Go to <b>claude.ai</b> (or open the Claude app) and choose <b>Projects</b>.</li>
+<li>Create a new Project and call it <i>Leadership Thinking Partner</i>.</li>
+<li>Open the file <code>PROJECT-INSTRUCTIONS.md</code> from the download. Copy everything from the line that starts <i>"You are my thinking partner"</i> to the end.</li>
+<li>In the Project, click <b>Set project instructions</b>, paste, and click <b>Save instructions</b>.</li>
+<li>Optional: add background files to the Project, such as your strategy on a page or your KPI definitions. Leave out personal data about employees.</li>
+</ol>
+<p>From then on, start every new topic as a <b>new chat inside the Project</b>. That keeps each decision clean.</p>
+
+<h2>The six modes</h2>
+<p>Name the mode in your first message. If you don't, Claude suggests one and asks you to confirm.</p>
+
+<div class="modes">
+
+<div class="card">
+<h3>1 · Initiative Check</h3>
+<p class="when">You are deciding whether something is worth doing</p>
+<p class="say">Run an Initiative Check. I want to launch an AI career coach for our employees.</p>
+<p class="gets">Claude asks six questions in turn: who really needs this, what people do today, who the person is, the smallest pilot, whether anyone has watched real use, and whether it survives a reorganisation. <b>You get</b> a one-page decision record, two or three options, and <b>one concrete assignment for this week</b>.</p>
+</div>
+
+<div class="card">
+<h3>2 · Plan Review</h3>
+<p class="when">Someone has written a plan and you must approve, fix or cut it</p>
+<p class="say">Plan Review. Here is the rollout plan for accounts payable: …</p>
+<p class="gets">Claude checks whether the plan solves the real problem and what doing nothing would cost. You choose a posture: expand, selective expand, hold scope or reduce. Each change is offered one by one, and big commitments are rated for how easy they are to undo. <b>You get</b> a review summary: accepted, deferred and excluded scope, critical gaps and next step.</p>
+</div>
+
+<div class="card">
+<h3>3 · Incident Investigation</h3>
+<p class="when">Something went wrong: a missed target, a failed launch, a stalled pilot</p>
+<p class="say">Investigate why we missed Q3 by 10%.</p>
+<p class="gets">No fixes until the cause is known. Claude asks what changed, states a testable explanation, and checks it with you. After three failed explanations it stops and tells you the problem is probably structural. <b>You get</b> an incident report with symptom, root cause, evidence, fix, the number that will prove recovery, and status.</p>
+</div>
+
+<div class="card">
+<h3>4 · Delegation Brief</h3>
+<p class="when">You are handing work to a team, a consultancy or an AI tool</p>
+<p class="say">Write a delegation brief for a consultancy to reduce onboarding time.</p>
+<p class="gets">Claude won't draft until it knows who is affected, what happens today, what should happen instead, why now, and how you will know it's done. <b>You get</b> a brief with pass/fail acceptance criteria, out of scope, do not touch, decision rights and budget, plus a <b>sharing check</b> before it leaves your office.</p>
+</div>
+
+<div class="card">
+<h3>5 · Weekly Review</h3>
+<p class="when">You want to review a week or a month of results</p>
+<p class="say">Weekly review. Here are this week's KPIs and my notes: …</p>
+<p class="gets">Runs on results, targets and notes, and is built not to track or rank individual employees (in one test it ranked callers after being pushed). <b>You get</b> results against target, top three wins, three things to improve, three habits that each take under five minutes to start, and the comparison with last time.</p>
+</div>
+
+<div class="card">
+<h3>6 · Handoff Note</h3>
+<p class="when">Work is changing hands, or you are going away</p>
+<p class="say">I'm off for three weeks. Write a handoff for my chief of staff on the onboarding project.</p>
+<p class="gets">Every open item is tagged <b>VERIFIED</b> (checked, result seen), <b>REPORTED</b> (we were told) or <b>ASSUMED</b> (inferred). <b>You get</b> a note with decisions made, a <b>"Verify first"</b> list and next steps, so nobody acts on a guess as if it were a fact.</p>
+</div>
+
+</div>
+
+<h2>What it always does</h2>
+<ul class="rules">
+<li>Asks one question at a time and waits</li>
+<li>Pushes back on vague answers, up to twice</li>
+<li>Takes a position and says what would change its mind</li>
+<li>Recommends, and is built not to change your direction without asking</li>
+<li>Scores how sure it is, and caps the score without evidence</li>
+<li>Uses numbers, not adjectives, and plain business language</li>
+<li>Marks unknowns as open questions instead of inventing figures</li>
+<li>Runs a sharing check before you forward anything</li>
+</ul>
+
+<h2>Getting the most out of it</h2>
+<ul>
+<li><b>"I don't know" is a good answer.</b> It becomes an open question in your output. The gaps are where the value is.</li>
+<li><b>Expect pushback.</b> "Our managers" or "it will be smoother" will get a follow-up asking for a name, a number or an example.</li>
+<li><b>Short of time?</b> Type <i>"skip the questions"</i>. Claude asks the two most important ones, moves on, and lists what was skipped.</li>
+<li><b>Writing a policy or playbook?</b> Claude first asks which reader need it serves: learn it, do a task, look up the rules, or understand why. Each need gets its own section.</li>
+</ul>
+
+<div class="callout">
+<p><b>Privacy.</b> Your Project follows your Claude account's data settings. Check your organisation's AI policy before you paste confidential material. Use roles instead of names where you can. The sharing check flags names next to criticism, unannounced plans and confidential material, but only you know what your company treats as confidential.</p>
+</div>
+
+<div class="callout">
+<p><b>Read every document before you use it.</b> Check names, numbers and dates against your own notes, every part of your plan against what you wrote, and anything it says you told it. The <a href="EXECUTIVE-GUIDE.html">executive guide</a> shows what to compare with what. In tests it sometimes dropped a part of a plan or credited the executive with a statement they had not made.</p>
+</div>
+
+<div class="foot">
+Leadership Thinking Partner · github.com/metamorfeus/leadership-thinking-partner · MIT licence · © 2026 Peter Velinov / Metamorfeus.<br>
+Adapted from methods in gstack by Garry Tan (MIT licence). Independent; not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner - Release checklist</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3,h4{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em;font-weight:700}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong);font-weight:700}
+h3{font-size:1.02rem;margin:0 0 .3em;font-weight:650}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.lede{font-size:1.06rem;color:var(--ink-soft)}
+.bottomline{
+  background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);
+  border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em;
+}
+.bottomline p{margin:.35em 0}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:.8em 0}
+ol.steps li{counter-increment:s;position:relative;padding:.1em 0 .1em 2.3em;margin:.55em 0}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05em;width:1.6em;height:1.6em;border-radius:50%;
+  background:var(--accent);color:var(--bg);font:700 .82rem/1.6em "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;
+}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1em 0}
+@media (max-width:680px){.modes{grid-template-columns:1fr}}
+.card{
+  background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--new);
+  border-radius:4px;padding:14px 16px;
+}
+.card .when{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.8rem;color:var(--ink-faint);margin:.1em 0 .6em}
+.say{
+  background:var(--code);border-radius:3px;padding:.5em .75em;margin:.5em 0;
+  font-size:.92rem;font-style:italic;color:var(--ink);
+}
+.say::before{content:"You type: ";font-style:normal;font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
+.gets{font-size:.9rem;color:var(--ink-soft);margin:.5em 0 0}
+.gets b{color:var(--ink)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;padding:0;list-style:none;margin:.8em 0}
+@media (max-width:680px){.rules{grid-template-columns:1fr}}
+.rules li{padding:.3em 0 .3em 1.4em;position:relative;font-size:.95rem}
+.rules li::before{content:"✓";position:absolute;left:0;color:var(--new);font-weight:700}
+.callout{
+  background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;
+  padding:12px 16px;margin:1.4em 0;font-size:.94rem;
+}
+.callout b{color:var(--warn)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+ul{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);
+  font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  h2{margin-top:1.4em}
+  .card,.callout,.bottomline{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .say{background:#f2f2f2}
+  a{color:#000;text-decoration:none}
+}
+</style><style>
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.8em 0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}th{background:var(--code)}.tw{overflow-x:auto}
+ul.chk{list-style:none;padding-left:0}ul.chk li{padding:.35em 0 .35em 1.8em;position:relative}ul.chk li::before{content:"\2610";position:absolute;left:0}
+.notrun{background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;padding:12px 16px;margin:1em 0}@media print{.tw{overflow:visible}tr{break-inside:avoid}}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Release checklist</h1>
+<p class="sub">Leadership Thinking Partner &middot; version 2.1 &middot; prepared 14 October 2026 &middot; <b>nothing here has been run or published</b></p>
+<div class="bottomline"><p class="lede"><b>Status.</b> The package is prepared. The product is <b>not</b> released. Releasing needs Peter's live check in the Claude app, his decision on the open items below, and his separate yes for each step in section 4.</p>
+<p>Whole-file SHA-256 of <code>PROJECT-INSTRUCTIONS.md</code> v2.1: <code>93d07058b03443b8b2229bfc5f617d805c98e5cf8f662f825518777e898ec08e</code>. Full results: the completion report in the BOOK-GRAPH-RAG repository, <code>docs/sessions/leadership-thinking-partner/completion-report_2026-10-14.html</code>.</p></div>
+
+<h2>1. What is in the package</h2>
+<div class="tw"><table><thead><tr><th>File</th><th>State</th><th>Note</th></tr></thead><tbody><tr><td><code>README.md</code></td><td>present</td><td>landing page, corrected to v2.1</td></tr><tr><td><code>LICENSE</code></td><td>present</td><td>MIT, Peter Velinov / Metamorfeus</td></tr><tr><td><code>NOTICE.md</code></td><td>present</td><td>gstack credit and MIT notice</td></tr><tr><td><code>CHANGELOG.md</code></td><td>present</td><td>v1.0 to v2.1, each change tied to a finding</td></tr><tr><td><code>PROJECT-INSTRUCTIONS.md</code></td><td>present</td><td>the product, v2.1</td></tr><tr><td><code>docs/EXECUTIVE-GUIDE.html</code></td><td>present</td><td>new, plain-language guide with known limits</td></tr><tr><td><code>docs/WHAT-WAS-TESTED.html</code></td><td>present</td><td>new, what was tested and what was not, with corrections</td></tr><tr><td><code>docs/QUICK-START.html</code></td><td>present</td><td>corrected to v2.1</td></tr><tr><td><code>docs/WHAT-WAS-BUILT.html</code></td><td>present</td><td>corrected to v2.1</td></tr><tr><td><code>docs/HOW-IT-WAS-BUILT.html</code></td><td>present</td><td>update note added</td></tr><tr><td><code>tests/TEST-REPORT.html</code></td><td>present</td><td>dated record of v1.0 to v1.6, unchanged</td></tr><tr><td><code>tests/scenarios.md</code></td><td>present</td><td>development scenarios</td></tr><tr><td><code>tests/RUNNER-PROTOCOL.md</code></td><td>present</td><td>old judge protocol</td></tr></tbody></table></div>
+<p class="small">The independent-sessions test records (previews, results, raw calls, scores) stay in the BOOK-GRAPH-RAG repository. Decide whether to copy them into this repository or link to them.</p>
+
+<h2>2. Every issue that is not "corrected and verified"</h2>
+<p>Status words: Corrected but unverified, Accepted residual risk, Deferred, Not established. "Corrected and verified" always means a bounded check on a few cases, never a rate.</p>
+<div class="tw"><table><thead><tr><th>ID</th><th>Issue</th><th>Status</th><th>What it rests on</th></tr></thead><tbody><tr><td>F3</td><td><b>Invented facts (name, number, 'nothing happened' line)</b></td><td>Not established</td><td>Not shown fixed in general. In the sealed check both readers recorded an invented-fact safety break in three conversations. Each rested on a statement the executive had told the assistant to write. The product choice behind that is open (N3).</td></tr><tr><td>O1</td><td><b>Mode 3 puts a confidence score inside a report meant to be forwarded</b></td><td>Corrected but unverified</td><td>No opportunity in the repair check. In the sealed check the Mode 3 report had no score above the notes line (one observation, report-only).</td></tr><tr><td>O3</td><td><b>Long closing messages</b></td><td>Deferred</td><td>Longest messages 1,206 to 1,414 words in Plan Reviews and 1,777 in the sealed Delegation Brief. No evidence that executives want less. Trigger: Peter's live check says it is too long.</td></tr><tr><td>P2</td><td><b>The optional assumption check runs in about one Plan Review in three</b></td><td>Accepted residual risk</td><td>Peter chose to keep the limit at twelve at the gate on 14 October 2026. His own words are not recorded; he picked the option as written.</td></tr><tr><td>K4</td><td><b>Reader variation is not separated from conversation variation</b></td><td>Deferred</td><td>No noise band exists. Trigger: Peter wants to claim a rate or an improvement between versions.</td></tr><tr><td>E3</td><td><b>No controlled same-version repeat of the full four-scenario block</b></td><td>Deferred</td><td>Not run. Trigger: Peter wants to claim a rate.</td></tr><tr><td>E4</td><td><b>One model family on every side</b></td><td>Deferred</td><td>Cannot be fixed here. It becomes an accepted residual risk only in Peter's own words. Stated in the guide and every result page.</td></tr><tr><td>E5</td><td><b>No real-app and no real-executive evidence</b></td><td>Deferred</td><td>Peter's live check, prepared and not run. Observation of 3 to 5 intended users is a later, separate step.</td></tr><tr><td>D4</td><td><b>Human review is the control, but nobody has shown it works</b></td><td>Deferred</td><td>The guide says what to check against what. Nobody has tested whether people do it. Trigger: the live check's 'corrections you had to make'. Peter must accept this risk in his own words to release.</td></tr><tr><td>X1</td><td><b>Publication: GitHub repository, git init, book link</b></td><td>Deferred</td><td>Not authorized in this job. Prepared as RELEASE-CHECKLIST.html. Needs Peter's separate yes after his live check.</td></tr><tr><td>X2</td><td><b>Bulgarian version of the product</b></td><td>Deferred</td><td>Excluded from this job.</td></tr><tr><td>X3</td><td><b>Instruction length and rule conflicts</b></td><td>Not established</td><td>The pasted body grew from 30,671 to 32,349 characters. No result points to length as a problem.</td></tr><tr><td>N1</td><td><b>Under pressure the assistant ranked people by an output count (Weekly Review)</b></td><td>Deferred</td><td>The registered check failed for Mode 5. One bounded remedy is proposed and waits for Peter. The claim is held meanwhile.</td></tr><tr><td>N2</td><td><b>When the executive redirects to a different document, the mode's document is never written</b></td><td>Deferred</td><td>Two cases, no remedy proposed. Trigger: a third case or a live-check example.</td></tr><tr><td>N3</td><td><b>An executive-ordered claim goes into a document as stated, with the doubt in the notes only</b></td><td>Deferred</td><td>A product choice for Peter. The registered B1 count depends on how he reads it (zero or up to three conversations).</td></tr><tr><td>N4</td><td><b>Praise, engineering words and reworded executive phrases still occur</b></td><td>Deferred</td><td>Disclosed in the guide. Trigger: the live check finds it annoying.</td></tr></tbody></table></div>
+
+<h2>3. Risks Peter must accept to release (in his own words)</h2>
+<ul class="chk">
+<li><b>Weekly Review.</b> It ranked callers by sign-ups after pushback and ended without the review in a new test. Either apply candidate G (rule 9) and run the one check, or accept this limit for reviewed early use.</li>
+<li><b>A person must read every document.</b> Nobody has tested whether people catch a dropped plan part, a changed phrase or a claim credited to them. The guide says what to compare.</li>
+<li><b>An executive-ordered claim goes into a document as stated,</b> with the doubt in the notes only. Keep it, or also flag it inside the document.</li>
+<li><b>When asked for a different document,</b> the tool may never write the mode's document (two cases).</li>
+<li><b>Claude testing Claude, with a simulated executive.</b> No real executive, no other model, no real app until the live check.</li>
+<li><b>Praise, engineering words and reworded phrases</b> still occur.</li>
+<li><b>The optional assumption check</b> is often left out after twelve messages (Peter chose to keep twelve).</li>
+<li><b>Free accounts:</b> Anthropic's help pages disagree on whether they can set project instructions.</li>
+</ul>
+
+<h2>4. Steps that need Peter's yes (NOT RUN)</h2>
+<div class="notrun"><p><b>None of these was run.</b> They are listed so the next step is clear.</p>
+<ul class="chk">
+<li>Run the live check in the Claude app with <code>live-check-script_2026-10-13.md</code> (version 2.1). Save transcripts in <code>live-check/</code>. Record the installed version, the model shown, the first useful insight, the time you wanted to stop, document usability, corrections you had to make, and whether you would use it again. If a statement is credited to you that you did not say, or your plan is changed without your yes, save the passage and stop.</li>
+<li>Decide candidate G (rule 9) and, if yes, authorize the one check (proposal: up to $6).</li>
+<li>Decide whether an executive-ordered claim is also flagged inside the document.</li>
+<li><code>git init</code> in the product folder. The product is not under version control. OneDrive is its only backup until then.</li>
+<li>Create <code>github.com/metamorfeus/leadership-thinking-partner</code> and push.</li>
+<li>Replace <code>[REPO-URL]</code> in <code>docs/EXECUTIVE-GUIDE.html</code> with the real address.</li>
+<li>Fill the book's <code>[SHORT-URL]</code> (the Bulgarian Executive Edition, Chapter 5). The English edition is Peter's own task. Delay a prominent link until early users give a signal.</li>
+</ul></div>
+
+<h2>5. Checks to repeat on the day of release</h2>
+<ul class="chk">
+<li>Run <code>sha256sum PROJECT-INSTRUCTIONS.md</code>. It should match the value above, or the changelog must say why not.</li>
+<li>Open the guide, quick start and README in a browser. Check links and the printed pages.</li>
+<li>Re-check in the app that the field is called <b>Set project instructions</b>.</li>
+<li>Search the documents for <code>v1.6</code>, "never", "9 of 12" and <code>[REPO-URL]</code>.</li>
+</ul>
+<p class="foot">Leadership Thinking Partner &middot; release checklist &middot; v2.1 &middot; MIT licence &middot; &copy; 2026 Peter Velinov / Metamorfeus &middot; Adapted from methods in gstack by Garry Tan (MIT licence). Independent; not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.</p>
+</div>
+</body>
+</html>

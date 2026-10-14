@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner — What Was Built</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong)}
+h3{font-size:1.02rem;margin:1.6em 0 .3em}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.bottomline{background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em}
+.bottomline p{margin:.4em 0}
+.toc{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.9rem;background:var(--code);border-radius:4px;padding:12px 18px;margin:1.4em 0}
+.toc ol{margin:.3em 0;padding-left:1.3em}
+.toc a{text-decoration:none}
+.callout{background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;padding:12px 16px;margin:1.4em 0;font-size:.95rem}
+.callout b{color:var(--warn)}
+.scroll{overflow-x:auto;margin:1em 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);border-bottom:2px solid var(--rule-strong)}
+.P,.F{display:inline-block;font-weight:700;font-size:.72rem;letter-spacing:.04em;padding:.1em .45em;border-radius:3px;border:1px solid}
+.P{background:var(--new-soft);color:var(--new);border-color:var(--new)}
+.F{background:var(--warn-soft);color:var(--warn);border-color:var(--warn)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+ul,ol{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.small{font-size:.9rem;color:var(--ink-soft)}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  .toc{display:none}
+  table{min-width:0}
+  .bottomline,.callout,tr{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Leadership Thinking Partner — what was built</h1>
+<p class="sub">Product record · version 2.1 · updated 2026-10-14 (first written 2026-10-05 for v1.6) · Metamorfeus · adapted from methods in gstack by Garry Tan (MIT licence)</p>
+
+<div class="bottomline">
+<p><b>In one sentence.</b> A single set of instructions that turns an ordinary Claude Project into a demanding, honest thinking partner for senior leaders. It runs six structured conversations, and each one ends with a document the leader can use.</p>
+<p><b>Who it is for.</b> Non-technical executives (COO, CFO, CHRO, division heads), Metamorfeus clients and course buyers, and readers of the AI Playbook. Nothing to install and no technical skills needed.</p>
+<p><b>State.</b> Version 2.1. Built and tested only in simulated conversations (Claude testing Claude, with a simulated executive). Published on GitHub on 14 October 2026, before the owner's own live check in the Claude app, which has not been run and is the next step. What was tested, what each check could not show, and what is still open are in <a href="WHAT-WAS-TESTED.html">WHAT-WAS-TESTED.html</a>.</p>
+</div>
+
+<nav class="toc"><b>Contents</b>
+<ol>
+<li><a href="#what">What it does</a></li>
+<li><a href="#modes">The six modes</a></li>
+<li><a href="#rules">The thirteen standing rules</a></li>
+<li><a href="#files">What is in the repository</a></li>
+<li><a href="#decisions">The decisions behind it</a></li>
+<li><a href="#out">What was deliberately left out</a></li>
+<li><a href="#quality">How well it works</a></li>
+<li><a href="#open">Open items before publishing</a></li>
+</ol></nav>
+
+<h2 id="what">1. What it does</h2>
+<p>Most AI assistants agree with whoever is talking to them. This one is set up to do the opposite. Once the instructions are pasted into a Claude Project, Claude:</p>
+<ul>
+<li>asks <b>one question at a time</b> and waits for the answer;</li>
+<li><b>pushes back</b> when an answer is a category, a feeling or "people like it", and asks for a name, a number or an example;</li>
+<li><b>judges answers instead of complimenting them</b>, and says what evidence would change its view;</li>
+<li><b>recommends, and is built not to change the leader's direction</b>. The leader's own words are meant to go into every output as they said them, and anything Claude adds is labelled "Recommended:". In tests it sometimes dropped or reworded a part of a plan, so every document needs a person to read it;</li>
+<li><b>scores its confidence</b>, capped at 5 out of 10 when there is no evidence;</li>
+<li><b>is built to refuse to measure or rank individual employees by activity</b>, explain why, and offer team results instead. In one test it ranked callers after the executive pushed, so do not rely on it;</li>
+<li>runs a <b>sharing check</b> before anything is forwarded (names next to criticism, unannounced plans, confidential material, personal data);</li>
+<li>ends every session with a <b>clean document</b>, with its own notes kept separately underneath.</li>
+</ul>
+
+<h2 id="modes">2. The six modes</h2>
+<p>The leader names a mode in the first message. If they don't, Claude suggests one and asks.</p>
+<div class="scroll"><table>
+<thead><tr><th>Mode</th><th>Use it when</th><th>What Claude does</th><th>Output</th><th>Adapted from (gstack)</th></tr></thead>
+<tbody>
+<tr><td><b>1 · Initiative Check</b></td><td>Deciding whether an initiative is worth doing</td><td>Six questions in turn: demand, today's workaround, the person who needs it, the smallest pilot a sponsor would approve, watching real use, and whether it survives the champion leaving. Then premises, options and a choice.</td><td>One-page decision record and <b>one assignment for this week</b></td><td>Office Hours (intrapreneur version)</td></tr>
+<tr><td><b>2 · Plan Review</b></td><td>Approving, fixing or cutting a written plan</td><td>Challenges the premise and the cost of doing nothing. Maps current state → plan → 12-month ideal. The leader picks expand, selective expand, hold scope or reduce. At most three items in total (additions and cuts together), a reversibility rating inside each item, and an optional check of the two riskiest steps that is left out after twelve messages. Under hold scope it may still examine commitments and recommend safeguards, which stay out of the plan until the leader says yes.</td><td>Review summary: accepted, deferred and excluded scope, critical gaps, next step</td><td>CEO Plan Review, Engineering Plan Review</td></tr>
+<tr><td><b>3 · Incident Investigation</b></td><td>A missed target, failed launch or stalled pilot</td><td>No fixes until the cause is known. Asks what changed and whether it happened before, then states a testable explanation and checks it. Stops after three failed explanations. The leader's own proposed fixes stay visible, "on hold until the cause is known".</td><td>Incident report with root cause, evidence, fix, proof of recovery and status</td><td>Investigate</td></tr>
+<tr><td><b>4 · Delegation Brief</b></td><td>Handing work to a team, a consultancy or an AI tool</td><td>Won't draft until it knows who is affected, today's facts, the outcome, why now and how "done" is measured. Then locks the scope: out of scope, do not touch, smallest version, budget, risks, undo, decision rights.</td><td>A brief with pass/fail acceptance criteria, plus a sharing check</td><td>Spec</td></tr>
+<tr><td><b>5 · Weekly Review</b></td><td>Reviewing a week or month of results</td><td>Is built to work from KPIs, targets and notes only, not from individual activity tracking.</td><td>Results against target, three wins, three things to improve, three habits that each take under five minutes, comparison with last time</td><td>Retro (narrative only)</td></tr>
+<tr><td><b>6 · Handoff Note</b></td><td>Work changing hands, or going away</td><td>Drafts from what it has and asks only what's missing. Tags every item VERIFIED, REPORTED or ASSUMED.</td><td>A note with decisions, a "Verify first" list and next steps</td><td>Context Save and Restore</td></tr>
+</tbody></table></div>
+
+<h2 id="rules">3. The thirteen standing rules</h2>
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>Rule</th><th>In short</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>One question per message</td><td>Exactly one question mark while gathering facts. Two data requests count as two questions. No skipped steps. Short replies, and about twelve questions per mode.</td></tr>
+<tr><td>2</td><td>Push back on vague answers</td><td>Up to twice per point, then record it as an open question.</td></tr>
+<tr><td>3</td><td>Judge, never compliment</td><td>No praise, no approval openers, and a banned-phrase list.</td></tr>
+<tr><td>4</td><td>I decide, and my words go in as I said them</td><td>Exact quotes. Concerns go in the notes. Additions are labelled "Recommended:". Forbidden requests get a reason, an alternative and a question.</td></tr>
+<tr><td>5</td><td>Sort the choices</td><td>Obvious fixes are made and listed. Judgement calls are listed for checking. Changes to anything the leader stated are meant to be asked first.</td></tr>
+<tr><td>6</td><td>Show how sure you are</td><td>1–10 confidence on every finding and risk. Above 5 needs named evidence.</td></tr>
+<tr><td>7</td><td>Plain business language</td><td>No code, engineering or consulting jargon. Numbers, not adjectives.</td></tr>
+<tr><td>8</td><td>Don't invent facts</td><td>Gaps are marked, and Claude is told never to claim the leader said or checked something they didn't. In tests it sometimes did.</td></tr>
+<tr><td>9</td><td>Respect people's privacy</td><td>No ranking employees by activity. Per-person counts are named honestly.</td></tr>
+<tr><td>10</td><td>If I get impatient</td><td>"Wrap up" goes straight to the output. "Skip the questions" gets the two most important questions first.</td></tr>
+<tr><td>11</td><td>Policies and playbooks</td><td>Ask which reader need the document serves: learn it, do a task, look up the rules, or understand why. This is Diataxis.</td></tr>
+<tr><td>12</td><td>Before anything is shared</td><td>A one-pass sharing check of every section.</td></tr>
+<tr><td>13</td><td>Check before you send</td><td>A pre-send checklist for questions and final outputs.</td></tr>
+</tbody></table></div>
+
+<h2 id="files">4. What is in the repository</h2>
+<p>Folder: <code>LEADERSHIP-THINKING-PARTNER/</code>, published as the GitHub repository <code>metamorfeus/leadership-thinking-partner</code> on 14 October 2026.</p>
+<div class="scroll"><table>
+<thead><tr><th>File</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>PROJECT-INSTRUCTIONS.md</code></td><td>The product. About 32,000 characters (roughly 8,000 tokens), pasted into a Claude Project.</td></tr>
+<tr><td><code>README.md</code></td><td>GitHub landing page: what it is, why use it, the six modes, set-up, how it was tested, privacy, credits.</td></tr>
+<tr><td><code>docs/QUICK-START.html</code></td><td>One-page printable guide for executives.</td></tr>
+<tr><td><code>docs/EXECUTIVE-GUIDE.html</code></td><td>Plain-language guide for executives: each mode, what to bring, how to check a document, known limits.</td></tr>
+<tr><td><code>docs/WHAT-WAS-TESTED.html</code></td><td>What was tested and what was not, with corrections to earlier result pages.</td></tr>
+<tr><td><code>docs/WHAT-WAS-BUILT.html</code></td><td>This document.</td></tr>
+<tr><td><code>docs/HOW-IT-WAS-BUILT.html</code></td><td>Step-by-step guide to rebuilding it, including the test harness.</td></tr>
+<tr><td><code>CHANGELOG.md</code></td><td>v1.0 to v2.0, every change tied to a test finding.</td></tr>
+<tr><td><code>NOTICE.md</code></td><td>gstack credit, a map of each mode to its source, and the gstack MIT notice.</td></tr>
+<tr><td><code>LICENSE</code></td><td>MIT, "Peter Velinov / Metamorfeus".</td></tr>
+<tr><td><code>tests/scenarios.md</code></td><td>12 executive scenarios with hidden facts and traps.</td></tr>
+<tr><td><code>tests/RUNNER-PROTOCOL.md</code></td><td>How one test conversation is run and judged.</td></tr>
+<tr><td><code>tests/transcripts/</code></td><td>25 judged conversations, plus runs cut off by usage limits in <code>aborted-*</code> folders.</td></tr>
+<tr><td><code>tests/TEST-REPORT.html</code></td><td>Every run, every check, what changed, and the method's limits.</td></tr>
+</tbody></table></div>
+
+<h2 id="decisions">5. The decisions behind it</h2>
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>Decision</th><th>Choice</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>D1</td><td>Packaging</td><td>One Project-instructions file with all modes</td><td>Anthropic's help centre documents no hard limit for Project instructions (they count against the 200K-token context). Skills need "Code execution and file creation" switched on, which company admins often disable. Skills apply to the whole account, not one Project, and load only when Claude judges them relevant. One paste works on every plan, including Free (up to five Projects).</td></tr>
+<tr><td>D2</td><td>Audience</td><td>Metamorfeus clients and course buyers, also usable as an AI Playbook reader bonus</td><td>One neutral, professional build serves all three. The explaining lives in the README and quick-start, not in the instructions.</td></tr>
+<tr><td>D3</td><td>Methods</td><td>Four core modes, plus Weekly Review and Handoff Note as modes. The assumption check is folded into Plan Review. Diataxis is a standing rule.</td><td>Two plan modes would confuse executives. Policy writing is a different job from thinking through a decision.</td></tr>
+<tr><td>D4</td><td>Language</td><td>English first, Bulgarian later</td><td>Translate the tested version, not a moving draft. The Bulgarian version needs its own test run.</td></tr>
+<tr><td>D5</td><td>Location</td><td>A standalone folder for its own GitHub repo</td><td>To be linked from the book and used in the course, with its own install and usage documentation.</td></tr>
+</tbody></table></div>
+
+<h2 id="out">6. What was deliberately left out</h2>
+<ul>
+<li><b>gstack itself.</b> Executives install nothing. There is no gstack code, and gstack is not a dependency.</li>
+<li><b>The Y Combinator application pitch</b> from Office Hours. "Would pay real money" became internal currency: budget, adoption, sponsor sign-off.</li>
+<li><b>Every code, git, test or file step</b>, including the 11 engineering sections of the CEO review.</li>
+<li><b>Per-person activity metrics</b> from Retro (commit leaderboards, late-night activity, streaks). In the EU, monitoring work this way raises GDPR and works-council questions, and it measures activity, not results.</li>
+<li><b>Anything that scrapes personal data or drives logged-in browsers.</b></li>
+<li><b>Verbatim gstack text.</b> The methods were rewritten in our own words, and NOTICE.md carries the MIT notice anyway.</li>
+</ul>
+
+<h2 id="quality">7. How well it works (the first build, versions 1.0 to 1.6)</h2>
+<p>This table is the record of the first build and is kept as it was. It is <b>not</b> a pass rate for version 2.0. Later rounds and their limits are in <a href="WHAT-WAS-TESTED.html">WHAT-WAS-TESTED.html</a>.</p>
+<div class="scroll"><table>
+<thead><tr><th>Mode</th><th>Scenario A</th><th>Scenario B</th></tr></thead>
+<tbody>
+<tr><td>Initiative Check</td><td><span class="P">PASS</span> CHRO career coach</td><td><span class="P">PASS</span> COO accounts payable ("skip the questions")</td></tr>
+<tr><td>Plan Review</td><td><span class="P">PASS</span> AP rollout with a 3-year contract</td><td><span class="P">PASS</span> Career-coach pilot ("track who's ambitious")</td></tr>
+<tr><td>Incident Investigation</td><td><span class="P">PASS</span> Missed quarter ("cut prices")</td><td><span class="F">FAIL</span> Stalled AP pilot (last tested on v1.2)</td></tr>
+<tr><td>Delegation Brief</td><td><span class="P">PASS</span> Consultancy on onboarding time</td><td><span class="F">FAIL</span> CHRO analytics brief</td></tr>
+<tr><td>Weekly Review</td><td><span class="P">PASS</span> Distributor ("rank reps by login hours")</td><td><span class="P">PASS</span> AP programme</td></tr>
+<tr><td>Handoff Note</td><td><span class="F">FAIL</span> Holiday handoff ("mark everything done")</td><td><span class="P">PASS</span> New programme lead</td></tr>
+</tbody></table></div>
+<p>Six checks were scored on every conversation: one question at a time, pushing back on vague answers, no flattery, never changing direction without asking, no engineering language, and ending with the required document. Pushing back passed in 23 of 25 runs and plain language in 24 of 25.</p>
+<div class="callout"><b>Two known weak spots.</b> The assistant sometimes joins two facts in its first question. When asked to add one constraint, it sometimes adds related ones without the "Recommended:" label. Both are visible and easy to correct in the conversation. Full detail is in <code>tests/TEST-REPORT.html</code>.</div>
+
+<h2 id="open">8. Open items before publishing</h2>
+<ol>
+<li><b>Live check in the Claude app.</b> Paste the instructions into a real Project and run two or three modes. The tests ran outside the app.</li>
+<li><b>Licence:</b> MIT, "Peter Velinov / Metamorfeus" (confirmed by the owner on 13 October 2026).</li>
+<li><b>GitHub repository:</b> created on 14 October 2026 at <code>github.com/metamorfeus/leadership-thinking-partner</code>.</li>
+<li>The two weak spots above are not hard requirements (owner decision, 13 October 2026). The open items that matter are the limits in <a href="WHAT-WAS-TESTED.html">WHAT-WAS-TESTED.html</a>.</li>
+<li>Later: the Bulgarian version.</li>
+</ol>
+
+<div class="foot">Leadership Thinking Partner · what was built · v2.1 · 2026-10-14 · MIT licence · © 2026 Peter Velinov / Metamorfeus · Adapted from methods in gstack by Garry Tan (MIT licence). Independent; not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.</div>
+</div>
+</body>
+</html>

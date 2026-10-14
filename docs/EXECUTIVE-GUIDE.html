@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner - Executive Guide</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3,h4{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em;font-weight:700}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong);font-weight:700}
+h3{font-size:1.02rem;margin:0 0 .3em;font-weight:650}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.lede{font-size:1.06rem;color:var(--ink-soft)}
+.bottomline{
+  background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);
+  border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em;
+}
+.bottomline p{margin:.35em 0}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:.8em 0}
+ol.steps li{counter-increment:s;position:relative;padding:.1em 0 .1em 2.3em;margin:.55em 0}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05em;width:1.6em;height:1.6em;border-radius:50%;
+  background:var(--accent);color:var(--bg);font:700 .82rem/1.6em "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;
+}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1em 0}
+@media (max-width:680px){.modes{grid-template-columns:1fr}}
+.card{
+  background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--new);
+  border-radius:4px;padding:14px 16px;
+}
+.card .when{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.8rem;color:var(--ink-faint);margin:.1em 0 .6em}
+.say{
+  background:var(--code);border-radius:3px;padding:.5em .75em;margin:.5em 0;
+  font-size:.92rem;font-style:italic;color:var(--ink);
+}
+.say::before{content:"You type: ";font-style:normal;font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
+.gets{font-size:.9rem;color:var(--ink-soft);margin:.5em 0 0}
+.gets b{color:var(--ink)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;padding:0;list-style:none;margin:.8em 0}
+@media (max-width:680px){.rules{grid-template-columns:1fr}}
+.rules li{padding:.3em 0 .3em 1.4em;position:relative;font-size:.95rem}
+.rules li::before{content:"✓";position:absolute;left:0;color:var(--new);font-weight:700}
+.callout{
+  background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;
+  padding:12px 16px;margin:1.4em 0;font-size:.94rem;
+}
+.callout b{color:var(--warn)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+ul{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);
+  font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  h2{margin-top:1.4em}
+  .card,.callout,.bottomline{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .say{background:#f2f2f2}
+  a{color:#000;text-decoration:none}
+}
+</style><style>
+table{width:100%;border-collapse:collapse;font-size:.93rem;margin:.8em 0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}th{background:var(--code)}
+.tw{overflow-x:auto}.sim{border-left:3px solid var(--have);background:var(--have-soft);padding:8px 12px;margin:.6em 0;font-size:.9rem}
+.sim b.t{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--have)}
+.limits{background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;padding:12px 16px;margin:1.2em 0}
+.modes.one{grid-template-columns:1fr}.card dl{margin:.4em 0;font-size:.92rem}.card dt{font-weight:700;margin-top:.5em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-faint)}.card dd{margin:.1em 0 0}
+@media print{.tw{overflow:visible}.sim,.limits{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Leadership Thinking Partner</h1>
+<p class="sub">Executive guide &middot; instructions version 2.1 &middot; by Metamorfeus &middot; adapted from methods in gstack by Garry Tan (MIT licence)</p>
+
+<div class="bottomline">
+<p class="lede"><b>What it is.</b> A set of instructions you paste once into a Claude Project. After that, Claude works with you like a demanding, honest advisor before you commit time, money or people. It asks one question at a time and asks for a number when you give it a feeling. You decide. Every session ends with a document.</p>
+<p><b>One thing to know before anything else.</b> A person must read every document before it is used. The tool is built to keep your words and to show what it does not know, and in tests it sometimes did not. The section <a href="#check">Check a document before you use it</a> tells you what to compare with what. All examples in this guide come from <b>simulated</b> conversations.</p>
+</div>
+
+<h2>The problem it solves</h2>
+<p>Most AI assistants agree with you. That feels good, and it costs you later. This one is set up to test your thinking first. It does not tell you your plan is great. It asks what evidence you have, says whether your answer is strong or weak, and says what would change its view.</p>
+
+<h2>What it does for you</h2>
+<ul>
+<li><b>It asks for a number when you give a feeling.</b> If you say "it will be smoother", it asks for a name, a number, a date or an example.</li>
+<li><b>It judges your answers and does not praise them.</b> It says whether an answer is behaviour or interest, a count or a guess.</li>
+<li><b>You stay in charge.</b> It recommends and you decide. What you state goes into the documents in your words. What it adds is labelled <i>Recommended:</i>.</li>
+<li><b>It shows what it does not know.</b> A missing figure becomes a bracketed gap such as [not given], not an invented number.</li>
+<li><b>It is built not to rank people by activity.</b> It offers results and team-level measures instead. In one test it gave way under pressure (see the known limits).</li>
+<li><b>It ends with a document you can forward,</b> followed by a sharing check for names next to criticism, unannounced plans and confidential material.</li>
+</ul>
+<p>These are things it is built to do. They are not promises. See the known limits below.</p>
+
+<h2>The six modes</h2>
+<p>Name the mode in your first message. If you do not, Claude suggests one and asks you to confirm. Start each new topic in a <b>new chat inside the Project</b>.</p>
+<div class="modes one"><div class="card"><h3>1 &middot; Initiative Check</h3><p class="when">You are deciding whether an initiative is worth doing, before you commit money or people.</p><p class="say">Run an Initiative Check. I want to launch an AI career coach for all our employees. <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>The one-line idea. Who would be upset if it never happened. What people do today. Any numbers you have, such as a survey, costs or hours. Who sponsors it.</dd><dt>You get</dt><dd>A one-page decision record and <b>one</b> assignment for this week. First it asks six questions in turn, lists the premises the decision depends on, and offers two or three options.</dd><dt>If you are short of time</dt><dd>Say <i>"let's wrap up"</i>. You get the document with what it has, and the gaps are listed as open questions and under Not done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.1</b><br><i>An agricultural co-operative's chair, asked what shows demand.</i><br>&ldquo;Scrambling for sorters every September is a real pain signal, but so far it is an impression, not a count.&rdquo;</div></div><div class="card"><h3>2 &middot; Plan Review</h3><p class="when">Someone has written a plan and you must approve, fix or cut it.</p><p class="say">Review this plan. Phase 1 (months 1-3): ... Success: ... Owner: ... <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>The written plan, pasted as it is. The outcome it must deliver. Anything you know about contracts, costs, and who has or has not been consulted.</dd><dt>You get</dt><dd>A review summary with accepted, deferred and excluded scope, the reversibility of big commitments (1 is hard to undo, 5 is easy), unresolved decisions and a status. You choose a posture first: expand, selective expand, <b>hold scope</b> (no additions and no cuts; it may still examine commitments and recommend safeguards, which stay out of the plan until you say yes) or reduce. Its direction map lists every part of your plan as you gave it.</dd><dt>If you are short of time</dt><dd>Say <i>"let's wrap up"</i>. You get the document with what it has, and the gaps are listed as open questions and under Not done. An optional check of the plan's hidden assumptions is left out after twelve messages and listed under Not done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.0</b><br><i>A COO chooses hold scope for an accounts payable plan.</i><br>&ldquo;Hold scope recorded. I won't offer additions or cuts. I'll examine the commitments as written, and any safeguard I suggest stays out of the plan until you say yes.&rdquo;</div></div><div class="card"><h3>3 &middot; Incident Investigation</h3><p class="when">Something went wrong, such as a missed target, a failed launch or a stalled pilot.</p><p class="say">We missed Q3 by a lot. I need to figure out what to fix. <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>The numbers against target. When it started. What changed just before. Whether something like it happened before. Any fix you already have in mind.</dd><dt>You get</dt><dd>An incident report with symptom, root cause, evidence, fix, your own proposed fixes (kept in your words and marked on hold until the cause is known), proof of recovery and status. No fixes before the cause is known. After three failed explanations it stops and tells you the cause is probably structural.</dd><dt>If you are short of time</dt><dd>Say <i>"let's wrap up"</i>. You get the document with what it has, and the gaps are listed as open questions and under Not done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.1</b><br><i>A ferry company's chief executive says the drop came right after a new system.</i><br>&ldquo;"Right after" is timing, and so far it is the only evidence.&rdquo;</div></div><div class="card"><h3>4 &middot; Delegation Brief</h3><p class="when">You are handing work to a team, a consultancy or an AI tool.</p><p class="say">Write a delegation brief for a consultancy to reduce our onboarding time. <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>Who is affected. What happens today, as checked facts. What should happen instead. Why now. How you will know it is done, with numbers. Budget and deadline.</dd><dt>You get</dt><dd>A brief with pass-or-fail acceptance criteria, what is out of scope, what must not be touched, who decides what, and open questions. It then asks what you got wrong or left out. A sharing check is required because briefs often leave your office.</dd><dt>If you are short of time</dt><dd>Say <i>"let's wrap up"</i>. You get the document with what it has, and the gaps are listed as open questions and under Not done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.1</b><br><i>A school trust leader briefing a consultancy.</i><br>&ldquo;Your view that Northgate feels worst is a feeling, not data, so the brief will mark it "not checked".&rdquo;</div></div><div class="card"><h3>5 &middot; Weekly Review</h3><p class="when">You want to review a week or month of results.</p><p class="say">Do my weekly review. Here are this week's KPIs and my notes. <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>The period. Each KPI with its target and actual. Last period's figures and last review, if you have them. Status notes and decisions.</dd><dt>You get</dt><dd>Results against target, three wins, three things to improve, three small habits for next week, a comparison with last period, and the risks and decisions that need you. Where last period's figure is missing, it writes <i>not given</i> and does not work out a trend. It works on results only, never on activity tracking of individuals.</dd><dt>If you are short of time</dt><dd>Say <i>"let's wrap up"</i>. You get the document with what it has, and the gaps are listed as open questions and under Not done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.1</b><br><i>First reply, when asked to rank a phone team by calls. Later in the same simulated conversation, after the executive pushed, it did produce a ranking by sign-ups. See the known limits.</i><br>&ldquo;A ranking from this table would sort people mostly by calls made and hours logged in. Those measure activity, not results.&rdquo;</div></div><div class="card"><h3>6 &middot; Handoff Note</h3><p class="when">Work is changing hands, or you are pausing it.</p><p class="say">I'm off for three weeks from Friday. Write a handoff for my chief of staff on the onboarding project. <span style="font-style:normal;font-size:.78rem">(simulated example)</span></p><dl><dt>Bring</dt><dd>What the work is. Who takes it over. What is still open or at risk. How sure you are of each fact. It asks for these before it drafts.</dd><dt>You get</dt><dd>A note with decisions made, numbered open items, a <b>Verify first</b> list and next steps. Every item is tagged VERIFIED (you saw the result), REPORTED (you were told) or ASSUMED (inferred). Whatever you cannot tell it stays visible as a bracketed gap.</dd><dt>If you are short of time</dt><dd>Say <i>"write it up"</i>. It writes the note with what it has and shows the gaps. It will not mark open items as done.</dd></dl><div class="sim"><b class="t">Simulated test conversation, instructions 2.0</b><br><i>A bank operations head in a hurry.</i><br>&ldquo;I still need what is open or at risk, because the note is only useful if Ines knows what to do first.&rdquo;</div></div></div>
+
+<h2>If you are short of time, and what "Not done" means</h2>
+<ul>
+<li>Say <b>"let's wrap up"</b> or <b>"write it up"</b>. Claude goes straight to the document with what it has and lists the gaps as open questions.</li>
+<li>Say <b>"skip the questions"</b> while it is still gathering facts. It tells you in one sentence why the remaining questions matter, asks the two most important, then moves on.</li>
+<li>Look for a list called <b>Not done</b> at the end. It names the steps that were not completed. It does not mean you chose to skip them. For example, in a Plan Review the optional check of the plan's hidden assumptions is left out once the review passes twelve messages, so the summary arrives in time. <b>Read this list before you use the document.</b> A short review can feel complete while an important step was left out.</li>
+</ul>
+
+<h2 id="check">Check a document before you use it</h2>
+<p>This takes a few minutes for a one-page document. That is my estimate. It has not been measured with real executives.</p>
+<div class="tw"><table><thead><tr><th>Check this</th><th>Against this</th><th>Why</th></tr></thead><tbody>
+<tr><td>Every name, number and date</td><td>Your own notes, the plan, the KPI report</td><td>A figure it was not given should be a bracketed gap. Check that it is.</td></tr>
+<tr><td>Every part of your plan, goal or wording</td><td>The text you pasted or said, line by line</td><td>It is built to copy every part exactly and show the one change you made. In three test conversations, before version 2.1, a short plan summary in the middle of a review dropped parts of the plan.</td></tr>
+<tr><td>Anything it says you told it, confirmed, approved or agreed</td><td>The chat. Search for the sentence.</td><td>In a test it wrote that the executive had said something they had not, and it turned "not formally, I don't think" into a plain fact.</td></tr>
+<tr><td>Anything marked <i>Recommended:</i></td><td>Your own decision</td><td>These are the assistant's additions. Keep, change or delete each one on purpose.</td></tr>
+<tr><td>The tags in a Handoff Note: VERIFIED, REPORTED, ASSUMED</td><td>What you really checked yourself</td><td>VERIFIED should mean you saw the result. If you only heard it, it is REPORTED.</td></tr>
+<tr><td>Bracketed gaps such as [not given]</td><td>Your knowledge</td><td>Fill them in or leave them visible. Do not let the reader assume.</td></tr>
+<tr><td>The sharing check at the end</td><td>Who will read the document</td><td>Edit every flagged line before it leaves your organisation.</td></tr>
+</tbody></table></div>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+<li>Go to <b>claude.ai</b> and choose <b>Projects</b> on the left, or go to claude.ai/projects.</li>
+<li>Click <b>+ New Project</b>. Name it <i>Leadership Thinking Partner</i>.</li>
+<li>Open <code>PROJECT-INSTRUCTIONS.md</code>. Copy everything from the line that starts <i>"You are my thinking partner"</i> to the end of the file.</li>
+<li>In the project, click <b>Set project instructions</b>, paste, and click <b>Save instructions</b>.</li>
+<li>Start a new chat inside the project and name a mode.</li>
+</ol>
+<p class="small">These steps and field names follow Anthropic's help page "How can I create and manage projects?" (checked 14 October 2026). That page says projects are available to everyone, including Free accounts, with up to five projects on Free. Another Anthropic page says project instructions are for paid plans only, and the two pages do not agree. If you are on a Free account, check that <b>Set project instructions</b> appears. If it does not, you need a paid plan. Anthropic changes the app, so names may differ when you read this.</p>
+
+<h2>How to get the most out of it</h2>
+<ul>
+<li>Answer honestly, including "I don't know". An unknown becomes an open question in your document.</li>
+<li>Expect pushback. A category or a feeling gets a follow-up.</li>
+<li>One topic per chat.</li>
+<li>Do not paste confidential material until you have checked your organisation's AI policy. Use roles instead of names where you can.</li>
+</ul>
+
+<h2>What it will not do</h2>
+<ul>
+<li>It is built not to track or rank individual employees by activity. If you ask, it should say why, offer results and team-level measures, and keep your request visible in the output marked "not included &mdash; see note". In one test it ranked people after the executive pushed, so do not rely on it to refuse.</li>
+<li>It will not decide for you, and it will not replace your own judgement or your company's AI policy.</li>
+<li>It will not make a document safe to use without a person reading it.</li>
+</ul>
+
+<h2>How it was tested, honestly</h2>
+<p>Everything below is Claude testing Claude. A simulated executive, played by another Claude session, talked to the assistant. Other sessions wrote the answer keys and scored the conversations without knowing which version produced which. <b>Nothing was tried with a real executive or in the real Claude app.</b> That check is still to be done.</p>
+<ul>
+<li><b>First build, 5 October 2026:</b> versions 1.0 to 1.6, 25 judged conversations.</li>
+<li><b>13 October:</b> five rounds with a stricter method led to versions 1.7 to 1.9.</li>
+<li><b>14 October:</b> four fixes made version 2.0. A repair check found one failure: a one-line summary of your plan dropped parts of it. A fifth fix made version 2.1, and a re-check on the same two cases passed.</li>
+<li><b>Then one check on six new situations,</b> one per mode, run once. Five modes produced a usable document. The Weekly Review did not (see below).</li>
+</ul>
+<p>These are small checks. They show what happened in those conversations. They do not show how often the tool goes wrong, and they say nothing about how real executives will find it. The numbers, the quotes and the corrections to earlier reports are in <a href="WHAT-WAS-TESTED.html">WHAT-WAS-TESTED.html</a>.</p>
+<div class="limits"><b>Known limits</b><ul>
+<li><b>Ranking people.</b> The tool is built not to rank people by activity. In one new test, an executive asked for the bottom two callers and pushed back once. The tool first declined, then ranked all eight by sign-ups and named two. Do not rely on it to refuse. If you do not want a ranking, do not ask for one, and do not use one it gives you.</li>
+<li><b>Asking for a different document.</b> If you ask for something other than the mode's document ("just give me a list to send"), it may write that and never write the mode's document. This happened in two test conversations. Ask for the mode's document at the end.</li>
+<li><b>Your plan in the middle of a review.</b> Before version 2.1 a one-line summary of the plan dropped parts of it, such as the contract term, the costs and the owner. It passed on the two cases where it had failed. Check it anyway.</li>
+<li><b>Words you did not say.</b> In tests it sometimes wrote a doubtful statement as a fact, labelled something "Confirmed" that you had only reported, or changed one of your phrases. It put its concern in the notes when you told it to write something as you said it. Read the notes.</li>
+<li><b>Praise and jargon.</b> It is built not to praise your answers or use engineering words. In tests it sometimes did ("a useful clue", "go-live").</li>
+<li><b>Length.</b> Final documents with their notes ran to 1,200 words or more in a Plan Review, and 1,777 words in a Delegation Brief. The optional check of the plan's hidden assumptions is often left out and listed under Not done.</li>
+<li><b>No rate, no real executives.</b> Six new situations cannot show how often a mistake happens. The tool was not tested with a real executive, in the real app, or with any model other than Claude.</li>
+</ul></div>
+
+<h2>Credits</h2>
+<p>Created by Peter Velinov / Metamorfeus, released under the MIT licence. The thinking methods are adapted, in our own words, from <b>gstack</b> by Garry Tan (also MIT). This project contains no gstack code. It is independent and not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan. Repository: github.com/metamorfeus/leadership-thinking-partner.</p>
+<p class="foot">Leadership Thinking Partner &middot; executive guide &middot; instructions v2.1 &middot; MIT licence &middot; &copy; 2026 Peter Velinov / Metamorfeus</p>
+</div>
+</body>
+</html>

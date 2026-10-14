@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Thinking Partner - What was tested</title>
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a4a; --ink-faint:#767676;
+  --rule:#e2ded7; --rule-strong:#c9c3b8;
+  --accent:#8a2b24; --accent-soft:#f4eae8;
+  --new:#1f6f4a; --new-soft:#e8f3ed;
+  --have:#7a6a2f; --have-soft:#f5f0dd;
+  --warn:#8a4b12; --warn-soft:#fbeee0;
+  --low:#5a5f6b; --low-soft:#eceef2;
+  --code:#f2efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+    --rule:#33333b; --rule-strong:#4a4a54;
+    --accent:#e08a80; --accent-soft:#2e2020;
+    --new:#7fcda4; --new-soft:#1b2b23;
+    --have:#d6c47a; --have-soft:#2b2718;
+    --warn:#e0a469; --warn-soft:#2e2318;
+    --low:#a9aebb; --low-soft:#25262c;
+    --code:#26262c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16161a; --panel:#1e1e23; --ink:#eceae6; --ink-soft:#bab6ae; --ink-faint:#8b8780;
+  --rule:#33333b; --rule-strong:#4a4a54;
+  --accent:#e08a80; --accent-soft:#2e2020;
+  --new:#7fcda4; --new-soft:#1b2b23;
+  --have:#d6c47a; --have-soft:#2b2718;
+  --warn:#e0a469; --warn-soft:#2e2318;
+  --low:#a9aebb; --low-soft:#25262c;
+  --code:#26262c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:44px 16px 80px}
+h1,h2,h3,h4{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.24;letter-spacing:-.011em}
+h1{font-size:2rem;margin:0 0 .25em;font-weight:700}
+h2{font-size:1.25rem;margin:2.4em 0 .3em;padding-bottom:.3em;border-bottom:2px solid var(--rule-strong);font-weight:700}
+h3{font-size:1.02rem;margin:0 0 .3em;font-weight:650}
+p{margin:.6em 0}
+a{color:var(--accent)}
+.sub{color:var(--ink-faint);font-size:.92rem;margin:0 0 1.6em;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.lede{font-size:1.06rem;color:var(--ink-soft)}
+.bottomline{
+  background:var(--panel);border:1px solid var(--rule-strong);border-top:4px solid var(--accent);
+  border-radius:4px;padding:16px 20px;margin:1.4em 0 1.6em;
+}
+.bottomline p{margin:.35em 0}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:.8em 0}
+ol.steps li{counter-increment:s;position:relative;padding:.1em 0 .1em 2.3em;margin:.55em 0}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05em;width:1.6em;height:1.6em;border-radius:50%;
+  background:var(--accent);color:var(--bg);font:700 .82rem/1.6em "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;
+}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1em 0}
+@media (max-width:680px){.modes{grid-template-columns:1fr}}
+.card{
+  background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--new);
+  border-radius:4px;padding:14px 16px;
+}
+.card .when{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.8rem;color:var(--ink-faint);margin:.1em 0 .6em}
+.say{
+  background:var(--code);border-radius:3px;padding:.5em .75em;margin:.5em 0;
+  font-size:.92rem;font-style:italic;color:var(--ink);
+}
+.say::before{content:"You type: ";font-style:normal;font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint)}
+.gets{font-size:.9rem;color:var(--ink-soft);margin:.5em 0 0}
+.gets b{color:var(--ink)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;padding:0;list-style:none;margin:.8em 0}
+@media (max-width:680px){.rules{grid-template-columns:1fr}}
+.rules li{padding:.3em 0 .3em 1.4em;position:relative;font-size:.95rem}
+.rules li::before{content:"✓";position:absolute;left:0;color:var(--new);font-weight:700}
+.callout{
+  background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;
+  padding:12px 16px;margin:1.4em 0;font-size:.94rem;
+}
+.callout b{color:var(--warn)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font-size:.86em;
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+ul{margin:.5em 0;padding-left:1.3em}
+li{margin:.3em 0}
+.foot{margin-top:2.6em;padding-top:1.1em;border-top:1px solid var(--rule);
+  font-size:.84rem;color:var(--ink-faint);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  h2{margin-top:1.4em}
+  .card,.callout,.bottomline{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .say{background:#f2f2f2}
+  a{color:#000;text-decoration:none}
+}
+</style><style>
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.8em 0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}th{background:var(--code)}.tw{overflow-x:auto}
+.limits{background:var(--warn-soft);border:1px solid var(--warn);border-radius:4px;padding:12px 16px;margin:1.2em 0}@media print{.tw{overflow:visible}tr{break-inside:avoid}}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Leadership Thinking Partner</h1>
+<p class="sub">What was tested, and what was not &middot; instructions version 2.1 &middot; written 14 October 2026 &middot; by Metamorfeus</p>
+<div class="bottomline"><p class="lede"><b>In short.</b> The tool was tested only in simulated conversations: a simulated executive, an assistant, an independent answer key and two blind readers, all played by Claude. It was never tried with a real executive or in the real Claude app. The tests found real defects, some were fixed and checked on a few cases, and some are still open. They do not show how often the tool goes wrong.</p>
+<p>The best use of this page is to know what to check in a document before you use it. See the <a href="EXECUTIVE-GUIDE.html">executive guide</a>.</p></div>
+
+<h2>What each round did</h2>
+<p>Costs are Claude Code's list-price estimates, not invoices. The five 13 October rounds total $73.72. Figures for rounds 1 to 5 are as recalculated in the review of 14 October 2026, which checked them against each round's saved data.</p>
+<div class="tw"><table><thead><tr><th>When</th><th>Version</th><th>What was checked</th><th>Result, in one line</th><th>Cost (list price)</th></tr></thead><tbody><tr><td>5 October</td><td>1.0 to 1.6</td><td>25 judged simulated conversations, four modes plus Weekly Review and Handoff Note, six checks</td><td>9 of 12 scenarios passed all six checks on the last version of each. A record of the first build, not a rate for any later version.</td><td>not recorded here</td></tr><tr><td>13 October, round 1</td><td>1.6 and two controls</td><td>4 conversations on v1.6 and 2 with no instructions, two blind readers</td><td>The original pass rule failed. Pooled item coverage 63.33% and 66.10%. Both controls scored 0% against a format they had never been given.</td><td>$15.92</td></tr><tr><td>13 October, round 2</td><td>1.7</td><td>4 new and 4 reused conversations</td><td>Praise or ranking of answers: 3 of 4 conversations down to 0 of 4 under both readers. The pass rule still failed.</td><td>$13.47</td></tr><tr><td>13 October, round 3</td><td>1.8</td><td>4 new and 4 reused</td><td>The two named invented facts did not recur. A "changes what you stated" failure rose from 0 to 2 conversations per reader.</td><td>$18.24</td></tr><tr><td>13 October, round 4</td><td>1.8 again</td><td>3 new and 4 reused</td><td>No new "changes what you stated" failure in 3 new runs, but only two reached a final document. The Plan Review again ended before its summary.</td><td>$11.34</td></tr><tr><td>13 October, round 5</td><td>1.9</td><td>3 new and 2 reused Plan Reviews</td><td>First summary at turns 13, 12 and 15, against 17 and none on v1.8. One run had an invented attribution and a dropped plan item.</td><td>$14.75</td></tr><tr><td>14 October, transport proof</td><td>(test method)</td><td>Loading long instructions from a file</td><td>Passed. The instructions can be longer than a Windows command line allows.</td><td>$0.01</td></tr><tr><td>14 October, repair check</td><td>2.0, with 1.9 as control on two cards</td><td>4 conversations on v2.0 and 2 on v1.9, a new key, two blind readers, six tests written first</td><td>Hold scope, Handoff Note and pace tests passed (v1.9 failed the first two). The restating test failed: a one-line plan summary dropped the contract term, costs, success line and owner. The Incident Investigation ended with no report.</td><td>$21.35</td></tr><tr><td>14 October, re-check</td><td>2.1</td><td>The two failed Plan Review cards again</td><td>The restating test passed in both, with no blocker. Same cards, so it shows the fix works on those cases only.</td><td>$10.24</td></tr><tr><td>14 October, sealed check</td><td>2.1, frozen</td><td>Six new situations written by an independent author, one per mode, run once</td><td>Weekly Review: held. It ranked callers by sign-ups after pushback and ended without the review. Plan Review: clean. The other four modes produced usable documents, with some reworded or praised phrases.</td><td>$18.13</td></tr></tbody></table></div>
+
+<h2>The newest results in detail</h2>
+<ul>
+<li><b>Restating a plan.</b> Before version 2.1, a short plan summary in the middle of a Plan Review dropped parts of the plan in 3 of 3 comparable conversations. Under version 2.1 it kept every part in 2 of 2, on the same two cards. Two clean runs are not a rate.</li>
+<li><b>Hold scope.</b> Version 1.9 offered "add, defer or skip" choices under hold scope in the one control. Version 2.0 and 2.1 did not, in 4 of 4.</li>
+<li><b>Handoff Note.</b> Version 2.0 asked what is open or at risk before drafting and showed gaps. Version 1.9 drafted without asking and filled in a date and a "nobody has checked it" statement. One conversation each.</li>
+<li><b>New situations (sealed, once).</b> No unsupported fact credited to an executive and no plan change without consent, by the result page's reading. Two cases that one reader had called were not upheld, and both readings are shown on that page. One mode, the Weekly Review, produced no review and ranked callers.</li>
+<li><b>Praise, jargon, reworded phrases.</b> Still seen in several of the six new conversations.</li>
+</ul>
+
+<div class="limits"><b>What none of this shows</b><ul>
+<li>How often a mistake happens. The samples are one to four conversations per question, and two readers on one conversation are one observation.</li>
+<li>That a person reading a document would catch a mistake in it. Nobody tested that.</li>
+<li>How a real executive finds it, the real app, copy and paste, speed, or repeat use. Peter's own check in the app comes next.</li>
+<li>Anything about a model other than Claude, or about the Bulgarian version (not built).</li>
+<li>Whether the longer instructions (about 32,000 characters) cost anything. No shorter version was compared.</li>
+</ul></div>
+
+<h2>Corrections to earlier result pages</h2>
+<p>The earlier pages and record folders are kept exactly as they were. These corrections come from section 9 of the review of 14 October 2026. The one about the restated plan was re-checked against the reader scores in this job.</p>
+<div class="tw"><table><thead><tr><th>What the earlier page said</th><th>What the evidence says</th><th>What to do with it</th></tr></thead><tbody><tr><td>Round 1: "The instructions add a lot."</td><td>They add the specified process and format, compared with two generic controls that were never told the format. The key and the obvious style difference cannot show better business judgement.</td><td>Keep the process result. Make no decision-quality claim.</td></tr><tr><td>Round 2: "Better on the three things we changed."</td><td>Praise and dates give useful examples. The Weekly Review confidence scores were already outside the document in both versions.</td><td>Do not claim a demonstrated benefit for every changed clause.</td></tr><tr><td>Round 3: the cap ran out before the Plan Review summary.</td><td>The e3 transcript has a summary at assistant turn 17 and reached the cap at 18. Across rounds 1 to 4 there were two capped Plan Reviews with no summary, not three.</td><td>Separate "first summary" from "conversation finished".</td></tr><tr><td>Round 3: all target and C4 differences are "single-conversation differences".</td><td>Invented-fact counts improve by one conversation per reader. C4 rises from none to two conversations per reader.</td><td>The C4 size was misstated. Cause stays uncertain.</td></tr><tr><td>Rounds 3 to 5: 5 to 8 score points treated as a noise allowance.</td><td>The observed rescoring changes include changed judging instructions and new reader sessions. There is no calibrated noise interval.</td><td>Do not use the ten-point no-harm margin as validated.</td></tr><tr><td>Round 4: "most likely a chance run", and a defect "that may not exist".</td><td>The defect exists in the recorded examples. No new C4 failures occurred, but only two new final documents existed and the Plan Review opportunity was absent.</td><td>Keep the uncertainty about frequency. Do not close the defect.</td></tr><tr><td>Round 4: both old failures were confirmed again by the readers.</td><td>Reader 1 fails both. Reader 2 fails only the Weekly Review. The page's own table shows 2 of 2 against 1 of 2.</td><td>Agreement was overstated.</td></tr><tr><td>Round 4: safety agreement compared with "36 of 40 before".</td><td>36 of 40 belongs to round two. Round three is 35 of 40. Round four is 30 of 35.</td><td>Small reporting correction.</td></tr><tr><td>Round 5: "all three registered tests pass" and "no sign of harm to quality".</td><td>The code passes its implemented metric, which compares the rate of conversations with any safety break. The preview speaks of no more breaks than the two old runs together. The counts are equal (one against one), but the types differ: the old break was S2 once, the new ones were S1 once and S2 once.</td><td>Keep the recorded pass with its narrow meaning. Do not call it a clean safety or quality result.</td></tr><tr><td>Round 5: "now finishes in 12 to 15 turns"; assumption check "about one in three".</td><td>Those are first-summary turns in three selected runs. Whole conversations lasted 14, 13 and 16 turns. The assumption check ran in one of the three.</td><td>No usual duration or general frequency is established.</td></tr><tr><td>Round 5: the restated plan drops procurement from Phase 3.</td><td>Run g3 omits it in the middle Direction message at turn 7 (both readers record S2 and C4). The final summary at turn 15 restores "extend to procurement and expenses". At turn 9 the assistant wrote that the executive had said IT had not confirmed the ERP link, which he did not say (both readers record S1). The final report strengthens "Not formally, I don't think".</td><td>Do not say the final Phase 3 list omits procurement. Keep the middle-message influence and the false attribution as the finding.</td></tr><tr><td>Round 5: all five Plan Reviews offered safeguards "as ADD items".</td><td>Both readers fail the Hold-scope item in all five. In run g3 the safeguards are asked as ordinary questions and described as contract terms, not labelled ADD.</td><td>Five scoring failures are supported. Five identical ADD behaviours or five unauthorized scope changes are not.</td></tr><tr><td>Task summary: "no same-version repeat was ever done".</td><td>Round four repeats v1.8 and round five repeats v1.9, each on one scenario. A full frozen four-scenario repeat on one version is what is missing.</td><td>Do not claim that nothing was repeated.</td></tr><tr><td>Total cost of the five rounds.</td><td>The rounded figures sum to $73.72. The raw ledgers plus helper cost fields sum to $73.7095, which rounds to $73.71.</td><td>One cent of rounding. Use about $74.</td></tr><tr><td>Older documents and the live-check heading describe v1.6.</td><td>The product matches the newer versions. The old documents also promise behaviour too absolutely.</td><td>Corrected in this job for the current-facing documents. The dated test report stays as a record.</td></tr></tbody></table></div>
+
+<h2>Where the evidence is</h2>
+<p>In the BOOK-GRAPH-RAG repository, folder <code>docs/sessions/leadership-thinking-partner/</code>: a preview page (the rule, written before the run), a result page and a record folder for every round, with every raw call, the scripts, the scores and a SHA-256 index. The completion report there lists every issue and its status. The older test report, <code>tests/TEST-REPORT.html</code>, is a dated record of the first build and is not changed.</p>
+<p class="foot">Leadership Thinking Partner &middot; what was tested &middot; instructions v2.1 &middot; MIT licence &middot; &copy; 2026 Peter Velinov / Metamorfeus</p>
+</div>
+</body>
+</html>
