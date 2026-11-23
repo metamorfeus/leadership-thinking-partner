@@ -116,3 +116,14 @@ Created by Peter Velinov / Metamorfeus. Released under the [MIT licence](LICENSE
 The thinking methods are adapted, in our own words, from [gstack](https://github.com/garrytan/gstack)
 by Garry Tan, which is also MIT-licensed. This project contains no gstack code and does not install
 gstack. It is independent and not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.
+
+## About the author
+
+Leadership Thinking Partner is made by Peter Velinov / Metamorfeus.
+
+- [Metamorfeus](https://metamorfeus.com/) — Custom AI automation services for business processes.
+- [Metamorfeus products](https://metamorfeus.com/shop/) — Paid offerings including AI audits, workforce automation and employee AI training.
+- [Claude Cowork Training](https://claudecoworktraining.com/) — Independent, free self-paced training for everyday work, with paid team workshops; using Cowork requires a paid Claude plan.
+- [Management Assistant](https://assistant.metamorfeus.com/) — Turns meeting audio or transcripts into draft minutes for review and keeps tasks, owners and due dates together.
+
+Some linked products and services are paid. Leadership Thinking Partner stays free and works without any of them. Independent; not affiliated with or endorsed by Anthropic, Y Combinator or Garry Tan.
